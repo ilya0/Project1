@@ -27,20 +27,6 @@ var attackTurn = function(){
 var attrdisbursmentTurn = function(){
  //randomize cards and then deal to the players
 };
-
-var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
-
-
-  ///char disburment turn randomizes the cards
-  //then it disbureses them to the player hands
-disburser(testdatabaseChars,p1charhand,p2charhand);
-console.log(p1charhand);
-console.log(p2charhand);
-
-return p1charhand,p2charhand;
-
-};
-
 //*******disbursment function
 var disburser = function(inputArray,outputarray1,outputarray2){
 // takes one array and splits it into the two player arrays
@@ -53,6 +39,16 @@ for(var i = 0; i < inputArray.length; i++){
   }
 }
 };
+
+var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
+  ///char disburment turn randomizes the cards
+  //then it disbureses them to the player hands
+disburser(testdatabaseChars,p1charhand,p2charhand);
+return p1charhand,p2charhand;
+};
+console.log(p1charhand);
+console.log(p2charhand);
+
 
 
 
@@ -75,7 +71,10 @@ var times=2;
 
 
 
+var buttonpressedalert = function(){
+  alert("button pressed");
 
+};
 
 
 
