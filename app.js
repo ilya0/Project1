@@ -1,14 +1,14 @@
 var testdatabaseAttrs = [
-["attr","Black Belt",0,1],
-["attr","purple belt",0,1],
-["attr","Black Belt",0,1],
-["attr","polk dot belt",0,1]];
+{Attribute:"attr",name:"Black Belt",health:0,hp:1},
+{Attribute:"attr",name:"purple belt",health:0,hp:1},
+{Attribute:"attr",name:"Black Belt",health:0,hp:1},
+{Attribute:"attr",name:"polk dot belt",health:0,hp:1}];
 
 var testdatabaseChars = [
-["Char","Clu",1,1],
-["Char","Tron",1,1],
-["Char","Sark",1,1],
-["Char","Neo",1,1]
+{Attribute:"Char",name:"Clu",health:1,hp:1},
+{Attribute:"Char",name:"Tron",health:1,hp:1},
+{Attribute:"Char",name:"Sark",health:1,hp:1},
+{Attribute:"Char",name:"Neo",health:1,hp:1}
 ];
 
 var p1charhand = [];
@@ -20,9 +20,20 @@ var p2attrhand = [];
 var p1attackChar = [];
 var p2attackChar = [];
 
+var AttackTurn = 0;
 
 
-var attackTurn = function(onclickone, onclick ){
+
+var attackTurn = function(attackTurn,p1attackChar,p2attackChar){
+  if (attackTurn === 1){
+    p1attackChar.heath-p2attackChar.hp;
+    console.log(p1attackChar[health]);
+  };
+  else{
+    p2attackChar[health]=p1attackChar[hp];
+    console.log(p2attackChar[health]);
+  }
+
 
   //compaire subtract the health of the one player by the hp of the other
 };
