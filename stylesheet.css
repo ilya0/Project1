@@ -64,5 +64,28 @@ margin: 5px;
 
 }
 
+.p1currentattack{margin: 5px;
+  width: 100px;
+  height: 100%;
+  background: red;
+  cursor: pointer;
+  list-style: none;
+  line-height: 50px;
+  text-align: center;
+  float:left;
+
+}
+.p2currentattack{margin: 5px;
+  width: 100px;
+  height: 100%;
+  background: red;
+  cursor: pointer;
+  list-style: none;
+  line-height: 50px;
+  text-align: center;
+  float:left;
+
+}
+
 
 
