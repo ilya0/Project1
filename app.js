@@ -1,32 +1,24 @@
 var testdatabaseAttrs = [
 ["attr","Black Belt",0,1],
-["attr","Green belt",0,1]];
+["attr","purple belt",0,1],
+["attr","Black Belt",0,1],
+["attr","polk dot belt",0,1]];
 
 var testdatabaseChars = [
 ["Char","Clu",1,1],
-["Char","Tron",1,1]];
+["Char","Tron",1,1],
+["Char","Sark",1,1],
+["Char","Neo",1,1]
+];
 
-var p1cards = [];
-var p2cards = [];
+var p1charhand = [];
+var p2charhand = [];
 
-var Newchar = function(typeValue, nameValue,charHpValue,charHealthValue){
-  this.typeValue = typevalue;
-  this.nameKey = nameValue;
-  this.charHpKey = charHpValue;
-  this.charHealthKey = charHealthValue;
-};
+var p1attrhand = [];
+var p2attrhand = [];
 
-//char create test
-p1char = new newCharCard("testchar",100,100);
-
-var AttrCreator = function(typeValue, attrName,attrHp,attrHealth){
-  this.typeValue = typevalue;
-  this.attrNameKey = attrNamevalue;
-  this.attrHpKey = attrHpvalue;
-  this.attrHealthKey = attrHealthvalue;
-};
-
-p1char = new newCharCard();
+var p1actiondeck = [];
+var p2actiondeck = [];
 
 var attackTurn = function(){
   //compaire subtract the health of the one player by the hp of the other
@@ -36,41 +28,35 @@ var attrdisbursmentTurn = function(){
  //randomize cards and then deal to the players
 };
 
-var chardisbursmentTurn = function(testdatabaseChars){
-
-  //randomize the cards and disburse to card hand array
+var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
 
 
-    // intialize all the cards
-  //for testing purposes, currently use a central repo of chars and randomize for player hand
+  ///char disburment turn randomizes the cards
+  //then it disbureses them to the player hands
+disburser(testdatabaseChars,p1charhand,p2charhand);
+console.log(p1charhand);
+console.log(p2charhand);
 
-//first shuffle p1 an p2 values
-//then disburse to player hands
-//shuffle then disburse to players
-
-// shuffle turn
-var i, j, k;
-  var temp;
-
-  // Shuffle the stack 'n' times.
-
-  for (i = 0; i < n; i++)
-    for (j = 0; j < this.cards.length; j++) {
-      k = Math.floor(Math.random() * this.cards.length);
-      temp = this.cards[j];
-      this.cards[j] = this.cards[k];
-      this.cards[k] = temp;
-    }
-}
+return p1charhand,p2charhand;
 
 };
 
+//*******disbursment function
+var disburser = function(inputArray,outputarray1,outputarray2){
+// takes one array and splits it into the two player arrays
+for(var i = 0; i < inputArray.length; i++){
+    if(i%2 === 0 ){
+    outputarray1.push(inputArray[i]);
+    }
+  else{
+    outputarray2.push(inputArray[i]);
+  }
+}
+};
 
-///shuffle methodology
-var testarray =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-var testarraypushto =[];
 
 
+///******** shuffle methodology
 var randomizer = function(array){
 var i, j, k;
 var temp;
@@ -85,13 +71,37 @@ var times=2;
     }
     return array;
 }
-}
+};
 
 
-//testing randomizer function
-testrandomizer(testarray);
 
 
+
+
+
+
+
+//////////////////////////////////// saved for later
+//constructors
+
+
+p1char = new newCharCard();
+var Newchar = function(typeValue, nameValue,charHpValue,charHealthValue){
+  this.typeValue = typevalue;
+  this.nameKey = nameValue;
+  this.charHpKey = charHpValue;
+  this.charHealthKey = charHealthValue;
+};
+
+//char create test
+p1char = new newCharCard("testchar",100,100);
+
+var AttrCreator = function(typeValue, nameValue,charHpValue,charHealthValue){
+  this.typeValue = typevalue;
+  this.attrNameKey = attrNamevalue;
+  this.attrHpKey = attrHpvalue;
+  this.attrHealthKey = attrHealthvalue;
+};
 
 
 
