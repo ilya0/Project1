@@ -22,17 +22,22 @@ var p1charhand = [{Attribute:"Char",name:"Clu",health:1,hp:1},
 var p2charhand = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
 
 
+//******attack arrays p1 and p2
 var p1attackChar = ["undefined"];
 //p1attackchar is defined with the click on the card
 var p2attackChar = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
 //p2 is hard coded for testing purposes
 
-//variable for deciding the turn for the attack sequeny
-var AttackTurn = 1;
+
+//**Game mode intialisers
+
+//*******variable for deciding the turn for the attack sequeny
+var AttackTurn = 2;
+///**** note attack turn 2 is one player attack 1 is two player
+
 
 //variable to lock down the buttons for backwards action when game is in progress
 var gameMode ="Start";
-
 
 //hide all the cards
 $('.card').hide();
@@ -115,34 +120,41 @@ $('#card5').on('click', function() {
 });
 
 
+
+
+
 //attack valuation sequence
 var attackTurn = function(attackTurn,p1attackChar,p2attackChar){
   console.log("attack intiatied");
-  if (attackTurn === 1){
+  console.log("begining p1 attack char health ",p1attackChar[0].health);
+  console.log("begining p2 attack char health ",p2attackChar[0].health);
+  if (attackTurn %2 ===0){
    p2attackChar[0].health=p2attackChar[0].health-p1attackChar[0].hp;
 
     console.log("p1 attack char health" + p1attackChar[0].health);
     console.log("p2 attack char health" +p2attackChar[0].health);
   }
   else{
-  p1attackChar[0].health=p1attackChar[0].health-p2attackChar[0].hp;
-    console.log(p2attackChar[0].health);
+    alert("else function needs to be programmed");
+ // p1attackChar[0].health=p1attackChar[0].health-p2attackChar[0].hp;
+ //   console.log(p2attackChar[0].health);
   }
 };
 
 
 
-//compaire subtract the health of the one player by the hp of the other
-
-var attrdisbursmentTurn = function(testdatabaseAttrs,p1attrhand,p2attrhand){
- //randomize cards and then deal to the players
-randomizer(testdatabaseAttrs,p1attrhand,p2attrhand);
-disburser(testdatabaseAttrs,p1charhand,p2charhand);
-return p1attrhand,p2attrhand;
-};
 
 
-//*******disbursment function
+// //*****Disbursement button to  randomized and distribute cards
+// var attrdisbursmentTurn = function(testdatabaseAttrs,p1attrhand,p2attrhand){
+//  //randomize cards and then deal to the players
+// randomizer(testdatabaseAttrs,p1attrhand,p2attrhand);
+// disburser(testdatabaseAttrs,p1charhand,p2charhand);
+// return p1attrhand,p2attrhand;
+// };
+
+
+//*******disbursment function to divide the main deck into two hands
 var disburser = function(inputArray,outputarray1,outputarray2){
 // takes one array and splits it into the two player arrays
 for(var i = 0; i < inputArray.length; i++){
@@ -155,6 +167,8 @@ for(var i = 0; i < inputArray.length; i++){
 }
 };
 
+
+//*****Disbursement button to  randomized and distribute cards
 var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
 ///char disburment turn randomizes the cards
 //then it disbureses them to the player hands
@@ -183,6 +197,26 @@ var times=2;
     return array;
 }
 };
+
+
+//***** Win eval function
+var winEval = function(){
+  // if one of the arrays contains zero chars, that player looses
+};
+
+///*** Remove char function
+var removeChar = function(){
+  // if char health =0, remove from array completely
+};
+
+
+
+
+
+
+
+
+
 
 
 //////////////////////////////////// saved for later
