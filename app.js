@@ -1,9 +1,5 @@
 var testdatabaseAttrs = [
-{Attribute:"attr",
-name:"Black Belt",
-health:0,
-hp:1},
-
+{Attribute:"attr",name:"Black Belt",health:0,hp:1},
 {Attribute:"attr",name:"purple belt",health:0,hp:1},
 {Attribute:"attr",name:"Black2 Belt",health:0,hp:1},
 {Attribute:"attr",name:"polk dot belt",health:0,hp:1}];
@@ -16,107 +12,127 @@ var testdatabaseChars = [
 {Attribute:"Char",name:"Soul",health:1,hp:1}
 ];
 
+//char hands for characters
 var p1charhand = [{Attribute:"Char",name:"Clu",health:1,hp:1},
 {Attribute:"Char",name:"Tron",health:1,hp:1},
 {Attribute:"Char",name:"Sark",health:1,hp:1},
 {Attribute:"Char",name:"Neo",health:1,hp:1},
 {Attribute:"Char",name:"Soul",health:1,hp:1}
 ];
-
-
 var p2charhand = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
 
-// var p1attrhand = [];
-// var p2attrhand = [];
 
-var p1attackChar = [];
-var p2attackChar = [];
+var p1attackChar = ["undefined"];
+//p1attackchar is defined with the click on the card
+var p2attackChar = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
+//p2 is hard coded for testing purposes
 
-var AttackTurn = 0;
+//variable for deciding the turn for the attack sequeny
+var AttackTurn = 1;
 
-//var clickCard = $(this).on('click', function(){});
+//variable to lock down the buttons for backwards action when game is in progress
+var gameMode ="Start";
 
 
-$( "card1" ).data( "test", { first: 16, last: "pizza!" } );
-
-$('.p1charhand').each(function(index, element){
-  console.log(index, element);
-  var p1charhandvar = p1charhand[index];
-  $(element).data(p1charhandvar);
-});
-
-// we need some function to callback on the click event
-$('.p1charhand').on('click', function(){
-  console.log("You clicked on this p1charhand");
-  var p1charhandvar = $(this).data();
-  p1charhand.health += 50;
-  console.log(p1charhandvar);
-});
+//hide all the cards
+$('.card').hide();
 
 
 ///disburse cards to players function
-
 $('#disburseCardbutton').on('click',function(){
   $('.card1text').text(p1charhand[0].name,p1charhand[0].hp);
   $('.card2text').text(p1charhand[1].name,p1charhand[1].hp);
   $('.card3text').text(p1charhand[2].name,p1charhand[2].hp);
   $('.card4text').text(p1charhand[3].name,p1charhand[3].hp);
   $('.card5text').text(p1charhand[4].name,p1charhand[4].hp);
-  $('.card6text').text(p2charhand[0].name,p2charhand[0].hp);
-  $('.card7text').text(p2charhand[1].name,p2charhand[1].hp);
-  $('.card8text').text(p2charhand[2].name,p2charhand[2].hp);
-  $('.card9text').text(p2charhand[3].name,p2charhand[3].hp);
-  $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
-
-
+  // $('.card6text').text(p2charhand[0].name,p2charhand[0].hp);
+  // $('.card7text').text(p2charhand[1].name,p2charhand[1].hp);
+  // $('.card8text').text(p2charhand[2].name,p2charhand[2].hp);
+  // $('.card9text').text(p2charhand[3].name,p2charhand[3].hp);
+  // $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
+  $('.card').show();
 });
 
-///select card for attack function
-
+//////Card selection for attack action
+//card 1 click action
 $('#card1').on('click', function() {
   console.log("attack char added from p1 [0]");
- var cell1 = $(this).text();
- p1attackChar.push(p1charhand[0]);
+  //pop attack char array
+  p1attackChar.pop();
+  //remove active attack card
+  $('.card.player1').appendTo($('#p1attackstack'));
+  //push selected card into attack char array
+  p1attackChar.push(p1charhand[0]);
+//append card1 to playerboard
+  $( "#card1" ).appendTo( $( "#attackboard" ) );
+ console.log("ATTACK CHAR IS" + p1attackChar[0]);
 });
-$('.card2').on('click', function() {
-   console.log("attack char added from p1 [1]");
- var cell1 = $(this).text();
- p1attackChar.push(p1charhand[1]);
+
+
+
+//card 2 click action
+$('#card2').on('click', function() {
+console.log("attack char added from p1 [1]");
+  p1attackChar.pop();
+    //remove active attack card
+  $('.card.player1').appendTo($('#p1attackstack'));
+  p1attackChar.push(p1charhand[1]);
+ $( "#card2" ).appendTo( $( "#attackboard" ) );
+ console.log("ATTACK Char object - " + p1attackChar[0]);
 });
-$('.card3').on('click', function() {
+
+//card 3 click action
+$('#card3').on('click', function() {
    console.log("attack char added from p1 [2]");
- var cell1 = $(this).text();
- p1attackChar.push(p1charhand[2]);
+  p1attackChar.pop();
+    //remove active attack card
+  $('.card.player1').appendTo($('#p1attackstack'));
+  p1attackChar.push(p1charhand[2]);
+  $( "#card3" ).appendTo( $( "#attackboard" ) );
+ console.log("ATTACK Char object - " + p1attackChar[0]);
 });
-$('.card4').on('click', function() {
+
+///card 4 click action
+$('#card4').on('click', function() {
    console.log("attack char added from p1 [3]");
- var cell1 = $(this).text();
- p1attackChar.push(p1charhand[3]);
+ p1attackChar.pop();
+   //remove active attack card
+  $('.card.player1').appendTo($('#p1attackstack'));
+  p1attackChar.push(p1charhand[3]);
+  $( "#card4" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p1attackChar[0]);
 });
-$('.card5').on('click', function() {
+
+//card 5 click action
+$('#card5').on('click', function() {
    console.log("attack char added from p1 [4]");
- var cell1 = $(this).text();
- p1attackChar.push(p1charhand[4]);
+ p1attackChar.pop();
+   //remove active attack card
+  $('.card.player1').appendTo($('#p1attackstack'));
+  p1attackChar.push(p1charhand[4]);
+  $( "#card5" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p1attackChar[0]);
 });
 
 
-
-
+//attack valuation sequence
 var attackTurn = function(attackTurn,p1attackChar,p2attackChar){
   console.log("attack intiatied");
   if (attackTurn === 1){
-   p1attackChar.health=p1attackChar.health-p2attackChar.hp;
-    console.log(p1attackChar.health);
+   p2attackChar[0].health=p2attackChar[0].health-p1attackChar[0].hp;
 
+    console.log("p1 attack char health" + p1attackChar[0].health);
+    console.log("p2 attack char health" +p2attackChar[0].health);
   }
   else{
-  p2attackChar.health=p2attackChar.health-p1attackChar.hp;
-    console.log(p2attackChar.health);
+  p1attackChar[0].health=p1attackChar[0].health-p2attackChar[0].hp;
+    console.log(p2attackChar[0].health);
   }
 };
 
 
-  //compaire subtract the health of the one player by the hp of the other
+
+//compaire subtract the health of the one player by the hp of the other
 
 var attrdisbursmentTurn = function(testdatabaseAttrs,p1attrhand,p2attrhand){
  //randomize cards and then deal to the players
@@ -124,8 +140,6 @@ randomizer(testdatabaseAttrs,p1attrhand,p2attrhand);
 disburser(testdatabaseAttrs,p1charhand,p2charhand);
 return p1attrhand,p2attrhand;
 };
-
-
 
 
 //*******disbursment function
@@ -153,7 +167,6 @@ return p1charhand,p2charhand;
 };
 
 
-
 ///******** shuffle methodology
 var randomizer = function(array){
 var i, j, k;
@@ -170,15 +183,6 @@ var times=2;
     return array;
 }
 };
-
-
-
-var buttonpressedalert = function(){
-  alert("button pressed");
-
-};
-
-
 
 
 //////////////////////////////////// saved for later
