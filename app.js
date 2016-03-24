@@ -239,6 +239,7 @@ var attackTurn = function(){
   removeChar(p2charhand);
   p1attackChar = ["reset after attack"];
   p2attackChar = ["reset after attack"];
+  winEval(p1charhand,p2charhand);
 };
 
 
@@ -305,10 +306,29 @@ var times=2;
 
 
 //***** Win eval function
-var winEval = function(){
-
+var winEval = function(array1,array2){
+var array1sum = array1.reduce(function(a, b) {
+  return a + b;
+});
+var array2sum = array2.reduce(function(a, b) {
+  return a + b;
+});
+if(array1sum===0){
+  alert("player1 looses");
+}
+if(array2sum===0){
+  alert("player2 looses");
+}
 
 };
+
+
+
+
+
+
+
+
 
 ///*** Remove char function
 var removeChar = function(array){
