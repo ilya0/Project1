@@ -34,11 +34,11 @@ var attackTurncounter = 2;
 $('#playcounter').text(attackTurncounter);
 
 var counterfunction = function(){
-  if(attackTurncounter%2 ===0){
+  if(attackTurncounter % 2 === 0){
     return "P2";
-  }
-  else
+  } else {
     return "p1";
+  }
 };
 
 ///$$$$$$$$ attack counter doesnt work
@@ -98,14 +98,13 @@ $('#card1').on('click', function() {
 
 //card 2 click action
 $('#card2').on('click', function() {
-console.log("attack char added from p1 [1]");
+  console.log("attack char added from p1 [1]");
   p1attackChar.pop();
-
-    //remove active attack card
+  //remove active attack card
   $('.card.player1').appendTo($('#p1attackstack'));
   p1attackChar.push(p1charhand[1]);
- $( "#card2" ).appendTo( $( "#attackboard" ) );
- console.log("ATTACK Char object - " + p1attackChar[0]);
+  $( "#card2" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p1attackChar[0]);
 });
 
 

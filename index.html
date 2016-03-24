@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>This is the game you have all been waiting for</title>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
+  <head>
+    <title>This is the game you have all been waiting for</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  </head>
 <body>
 
-  <div class="P2buttonpanel">
-    <button onclick="buttonpressedalert()">P2 Attack Button</button>
-    <button onclick="buttonpressedalert()">P2 Manage Char button</button>
-  </div>
+  <div id = "p2attackstack">
+    <div class ="card player2" id = "card6">
+      <div class = "card6text cardtext">card 6</div>
+    </div>
+    <div class ="card player2" id = "card7">
+      <div class = "card7text cardtext">card 7</div>
+    </div>
+    <div class ="card player2" id = "card8">
+      <div class = "card8text cardtext">card 8</div>
+    </div>
+    <div class ="card player2" id = "card9">
+      <div class = "card9text cardtext">card 9</div>
+    </div>
+    <div class ="card player2" id = "card10">
+      <div class = "card10text cardtext">card 10</div>
+    </div>
+  </div><!-- /#p2attackstack-->
 
-  <div id = "p2handstack"> P2 hand Stack</div>
+  <div class = "playerboard">
+    <div id = "attackboard"></div>
+    <div id = "playstack">
+      <div id = "playstackinnerbox">
+      <button class = "actionButtons" id ="disburseCardbutton" onclick="">Disburse Cards</button>
+      <button class = "actionButtons" id ="attackSequence" onclick=attackTurn()>Attack!</button>
 
-      <div id = "p2attackstack"> P2 attack stack
-        <div class ="card player2" id = "card6"><div class = "card6text cardtext">card 6</div></div>
-        <div class ="card player2" id = "card7"><div class = "card7text cardtext">card 7</div></div>
-        <div class ="card player2" id = "card8"><div class = "card8text cardtext">card 8</div></div>
-        <div class ="card player2" id = "card9"><div class = "card9text cardtext">card 9</div></div>
-        <div class ="card player2" id = "card10"><div class = "card10text cardtext">card 10</div></div>
       </div>
 
-    <div class = "playerboard">
-
-      <div id = "attackboard">attackboard
     </div>
 
-    <div id = "playstack">Play stack
-        <button id ="disburseCardbutton" onclick="">Disburse Cards</button>
-        <button type="attackSequence" onclick=attackTurn()>Attack!</button>
-    </div>
 
     <div id ="playcounter"></div>
-  </div>
 
-  <div id = "p1attackstack"> P1 attack stack
-    <div class ="card player1" id = "card1"><div class = "card1text cardtext">card 1</div></div>
-    <div class ="card player1" id = "card2"><div class = "card2text cardtext">card 2</div></div>
-    <div class ="card player1" id = "card3"><div class = "card3text cardtext">card 3</div></div>
-    <div class ="card player1" id = "card4"><div class = "card4text cardtext">card 4</div></div>
-    <div class ="card player1" id = "card5"><div class = "card5text cardtext">card 5</div></div>
-  </div>
+  </div><!-- /.playerboard -->
 
-
-  <div id = "p1handstack"> P1 hand Stack</div>
-  <div class = "P1buttonpanel">
-    <button onclick="attackTurn()">P1 Attack button</button>
-    <button onclick="buttonpressedalert()">P1 Manage Char button</button>
-  </div>
+  <div id = "p1attackstack">
+    <div class ="card player1" id = "card1">
+      <div class = "card1text cardtext">card 1</div>
+    </div>
+    <div class ="card player1" id = "card2">
+      <div class = "card2text cardtext">card 2</div>
+    </div>
+    <div class ="card player1" id = "card3">
+      <div class = "card3text cardtext">card 3</div>
+    </div>
+    <div class ="card player1" id = "card4">
+      <div class = "card4text cardtext">card 4</div>
+    </div>
+    <div class ="card player1" id = "card5">
+      <div class = "card5text cardtext">card 5</div>
+    </div>
+  </div><!-- /#p1attackstack -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="app.js"></script>
