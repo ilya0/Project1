@@ -1,15 +1,16 @@
-var testdatabaseAttrs = [
-{Attribute:"attr",name:"Black Belt",health:0,hp:1},
-{Attribute:"attr",name:"purple belt",health:0,hp:1},
-{Attribute:"attr",name:"Black2 Belt",health:0,hp:1},
-{Attribute:"attr",name:"polk dot belt",health:0,hp:1}];
+// var testdatabaseAttrs = [
+// {Attribute:"attr",name:"Black Belt",health:0,hp:1},
+// {Attribute:"attr",name:"purple belt",health:0,hp:1},
+// {Attribute:"attr",name:"Black2 Belt",health:0,hp:1},
+// {Attribute:"attr",name:"polk dot belt",health:0,hp:1}
+//];
 
 var testdatabaseChars = [
-{Attribute:"Char",name:"Clu",health:1,hp:1},
-{Attribute:"Char",name:"Tron",health:1,hp:1},
-{Attribute:"Char",name:"Sark",health:1,hp:1},
-{Attribute:"Char",name:"Neo",health:1,hp:1},
-{Attribute:"Char",name:"Soul",health:1,hp:1}
+  {Attribute:"Char",name:"Clu",health:1,hp:1},
+  {Attribute:"Char",name:"Tron",health:1,hp:1},
+  {Attribute:"Char",name:"Sark",health:1,hp:1},
+  {Attribute:"Char",name:"Neo",health:1,hp:1},
+  {Attribute:"Char",name:"Soul",health:1,hp:1}
 ];
 
 //char hands for characters
@@ -19,23 +20,38 @@ var p1charhand = [{Attribute:"Char",name:"Clu",health:1,hp:1},
 {Attribute:"Char",name:"Neo",health:1,hp:1},
 {Attribute:"Char",name:"Soul",health:1,hp:1}
 ];
-var p2charhand = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
+var p2charhand = [{Attribute:"Char",name:"BON",health:1,hp:1},
+{Attribute:"Char",name:"CON",health:1,hp:1},
+{Attribute:"Char",name:"Son",health:1,hp:1},
+{Attribute:"Char",name:"LON",health:1,hp:1},
+{Attribute:"Char",name:"RON",health:1,hp:1}
+];
 
+// hard code p2 hand
 
 //******attack arrays p1 and p2
-var p1attackChar = ["undefined"];
+var p1attackChar = ["p1 attack char undefined"];
 //p1attackchar is defined with the click on the card
-var p2attackChar = [{Attribute:"Char",name:"Tron",health:1,hp:1}];
+var p2attackChar = ["p2 attack char undefined"];
 //p2 is hard coded for testing purposes
 
 
 //**Game mode intialisers
 
 //*******variable for deciding the turn for the attack sequeny
-var AttackTurn = 2;
+var attackTurncounter = 2;
+$('#playcounter').text(attackTurncounter);
+
+var counterfunction = function(){
+  if(attackTurncounter%2 ===0){
+    return "P2";
+  }
+  else
+    return "p1";
+};
+
+///$$$$$$$$ attack counter doesnt work
 ///**** note attack turn 2 is one player attack 1 is two player
-
-
 //variable to lock down the buttons for backwards action when game is in progress
 var gameMode ="Start";
 
@@ -45,18 +61,19 @@ $('.card').hide();
 
 ///disburse cards to players function
 $('#disburseCardbutton').on('click',function(){
-  $('.card1text').text(p1charhand[0].name,p1charhand[0].hp);
+  $('.card1text').html(p1charhand[0].name + p1charhand[0].hp); /// redo with Html
   $('.card2text').text(p1charhand[1].name,p1charhand[1].hp);
   $('.card3text').text(p1charhand[2].name,p1charhand[2].hp);
   $('.card4text').text(p1charhand[3].name,p1charhand[3].hp);
   $('.card5text').text(p1charhand[4].name,p1charhand[4].hp);
-  // $('.card6text').text(p2charhand[0].name,p2charhand[0].hp);
-  // $('.card7text').text(p2charhand[1].name,p2charhand[1].hp);
-  // $('.card8text').text(p2charhand[2].name,p2charhand[2].hp);
-  // $('.card9text').text(p2charhand[3].name,p2charhand[3].hp);
-  // $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
+  $('.card6text').text(p2charhand[0].name,p2charhand[0].hp);
+  $('.card7text').text(p2charhand[1].name,p2charhand[1].hp);
+  $('.card8text').text(p2charhand[2].name,p2charhand[2].hp);
+  $('.card9text').text(p2charhand[3].name,p2charhand[3].hp);
+  $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
   $('.card').show();
 });
+
 
 //////Card selection for attack action
 //card 1 click action
@@ -64,7 +81,7 @@ $('#card1').on('click', function() {
   console.log("attack char added from p1 [0]");
   //pop attack char array
   p1attackChar.pop();
-  //remove active attack card
+  //remove action for attack card back to player hadn
   $('.card.player1').appendTo($('#p1attackstack'));
   //push selected card into attack char array
   p1attackChar.push(p1charhand[0]);
@@ -86,6 +103,8 @@ console.log("attack char added from p1 [1]");
  console.log("ATTACK Char object - " + p1attackChar[0]);
 });
 
+
+
 //card 3 click action
 $('#card3').on('click', function() {
    console.log("attack char added from p1 [2]");
@@ -97,6 +116,8 @@ $('#card3').on('click', function() {
  console.log("ATTACK Char object - " + p1attackChar[0]);
 });
 
+
+
 ///card 4 click action
 $('#card4').on('click', function() {
    console.log("attack char added from p1 [3]");
@@ -107,6 +128,8 @@ $('#card4').on('click', function() {
   $( "#card4" ).appendTo( $( "#attackboard" ) );
   console.log("ATTACK Char object - " + p1attackChar[0]);
 });
+
+
 
 //card 5 click action
 $('#card5').on('click', function() {
@@ -120,27 +143,99 @@ $('#card5').on('click', function() {
 });
 
 
+//////*****P2 Cards stack
+//card 6 click action
+$('#card6').on('click', function() {
+   console.log("attack char added from p2 [4]");
+ p2attackChar.pop();
+   //remove active attack card
+  $('.card.player2').appendTo($('#p2attackstack'));
+  p2attackChar.push(p2charhand[0]);
+  $( "#card6" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p2attackChar[0]);
+});
 
+
+//card 7 click action
+$('#card7').on('click', function() {
+   console.log("attack char added from p2 [4]");
+ p2attackChar.pop();
+   //remove active attack card
+  $('.card.player2').appendTo($('#p2attackstack'));
+  p1attackChar.push(p2charhand[1]);
+  $( "#card7" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p2attackChar[0]);
+});
+
+//card 8 click action
+$('#card8').on('click', function() {
+   console.log("attack char added from p2 [4]");
+ p2attackChar.pop();
+   //remove active attack card
+  $('.card.player2').appendTo($('#p2attackstack'));
+  p2attackChar.push(p2charhand[2]);
+  $( "#card8" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p2attackChar[0]);
+});
+
+//card 9 click action
+$('#card9').on('click', function() {
+   console.log("attack char added from p2 [4]");
+ p2attackChar.pop();
+   //remove active attack card
+  $('.card.player2').appendTo($('#p2attackstack'));
+  p2attackChar.push(p2charhand[3]);
+  $( "#card9" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p2attackChar[0]);
+});
+
+//card 10 click action
+$('#card10').on('click', function() {
+   console.log("attack char added from p2 [4]");
+ p2attackChar.pop();
+   //remove active attack card
+  $('.card.player2').appendTo($('#p2attackstack'));
+  p2attackChar.push(p2charhand[4]);
+  $( "#card10" ).appendTo( $( "#attackboard" ) );
+  console.log("ATTACK Char object - " + p2attackChar[0]);
+});
 
 
 //attack valuation sequence
-var attackTurn = function(attackTurn,p1attackChar,p2attackChar){
+var attackTurn = function(){
   console.log("attack intiatied");
-  console.log("begining p1 attack char health ",p1attackChar[0].health);
-  console.log("begining p2 attack char health ",p2attackChar[0].health);
-  if (attackTurn %2 ===0){
-   p2attackChar[0].health=p2attackChar[0].health-p1attackChar[0].hp;
+  console.log("begining p1 attack char health ", p1attackChar[0].health);
+  console.log("begining p2 attack char health ", p2attackChar[0].health);
 
-    console.log("p1 attack char health" + p1attackChar[0].health);
-    console.log("p2 attack char health" +p2attackChar[0].health);
+  if (attackTurncounter %2 ===0){
+   p2attackChar[0].health = p2attackChar[0].health - p1attackChar[0].hp;
+
+    console.log("p1 attack char health ", p1attackChar[0].health);
+    console.log("p2 attack char health ", p2attackChar[0].health);
+  }
+  else if(attackTurncounter%2 !==0){
+   p1attackChar[0].health = p1attackChar[0].health - p2attackChar[0].hp;
+
   }
   else{
-    alert("else function needs to be programmed");
+    alert("Not enough attack players");
  // p1attackChar[0].health=p1attackChar[0].health-p2attackChar[0].hp;
  //   console.log(p2attackChar[0].health);
   }
+
+  attackTurncounter++;
+  $('#playcounter').text(attackTurncounter);
+  $('.card.player2').appendTo($('#p2attackstack'));
+  $('.card.player1').appendTo($('#p1attackstack'));
+  removeChar(p1charhand);
+  removeChar(p2charhand);
 };
 
+
+var returnTohand =function(attackarray,handarray){
+
+
+};
 
 
 
@@ -201,12 +296,22 @@ var times=2;
 
 //***** Win eval function
 var winEval = function(){
-  // if one of the arrays contains zero chars, that player looses
+
 };
 
 ///*** Remove char function
 var removeChar = function(){
   // if char health =0, remove from array completely
+    for(var i = 0; i < array.length; i++){
+    if(array[i].health <= 0){
+
+      array.splice(i,1);
+      alert(array[i].name,"has been removed");
+    }
+    else{
+      //alert("no chars removed");
+    }
+  }
 };
 
 

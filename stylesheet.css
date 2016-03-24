@@ -94,3 +94,14 @@ margin: 5px;
   height:70%;
 }
 
+.player2{
+  background-color: red;
+}
+
+#playcounter{
+  background:teal;
+  height: 50px;
+  width: 50px;
+  border: 5px solid;
+  float: right
+}
