@@ -1,5 +1,6 @@
 //neo and ron chars are giving back loads into p1attack char
-var testdatabaseChars = [{Attribute:"Char",name:"Clu",health:1,hp:1,cardis:"card99"},
+var testdatabaseChars =
+[{Attribute:"Char",name:"Clu",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Tron",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Sark",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Neo",health:1,hp:1,cardis:"card99"},
@@ -44,17 +45,18 @@ var counterfunction = function(){
 ///$$$$$$$$ attack counter doesnt work
 ///**** note attack turn 2 is one player attack 1 is two player
 //variable to lock down the buttons for backwards action when game is in progress
-var gameMode ="Start";
+
 
 //hide all the cards
 $('.card').hide();
+$('#attackSequence').hide();
 
 
 ///disburse cards to players function
 $('#disburseCardbutton').on('click',function(){
   disburser(testdatabaseChars,p1charhand,p2charhand);
 
-  $('.card1text').html(p1charhand[0].name + p1charhand[0].hp); /// redo with Html
+  $('.card1text').html(p1charhand[0].name); /// redo with Html
   p1charhand[0].cardis = "#card1";
   $('.card2text').text(p1charhand[1].name,p1charhand[1].hp);
   p1charhand[1].cardis = "#card2";
@@ -75,6 +77,8 @@ $('#disburseCardbutton').on('click',function(){
   $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
   p2charhand[4].cardis = "#card10";
   $('.card').show();
+  $('#disburseCardbutton').hide();
+  $('#attackSequence').show();
 
 });
 
@@ -210,6 +214,12 @@ $('#card10').on('click', function() {
 
 //attack valuation sequence
 var attackTurn = function(){
+
+  if(p1attackChar[0] === "p1 attack char undefined"|| p2attackChar[0] === "p2 attack char undefined" || p1attackChar[0] === "reset after attack"||p2attackChar[0] === "reset after attack"){
+    alert("Click on attacking Character");
+  }else{
+
+
   console.log("attack intiatied");
   console.log("begining p1 attack char health ", p1attackChar[0].health);
   console.log("begining p2 attack char health ", p2attackChar[0].health);
@@ -226,8 +236,7 @@ var attackTurn = function(){
   }
   else{
     alert("Not enough attack players");
- // p1attackChar[0].health=p1attackChar[0].health-p2attackChar[0].hp;
- //   console.log(p2attackChar[0].health);
+
   }
 
   attackTurncounter++;
@@ -239,24 +248,11 @@ var attackTurn = function(){
   p1attackChar = ["reset after attack"];
   p2attackChar = ["reset after attack"];
   winEval(p1charhand,p2charhand);
-};
-
-
-var returnTohand =function(attackarray,handarray){
-
-
+}
 };
 
 
 
-
-// //*****Disbursement button to  randomized and distribute cards
-// var attrdisbursmentTurn = function(testdatabaseAttrs,p1attrhand,p2attrhand){
-//  //randomize cards and then deal to the players
-// randomizer(testdatabaseAttrs,p1attrhand,p2attrhand);
-// disburser(testdatabaseAttrs,p1charhand,p2charhand);
-// return p1attrhand,p2attrhand;
-// };
 
 
 //*******disbursment function to divide the main deck into two hands
