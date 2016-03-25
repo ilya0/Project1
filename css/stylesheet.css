@@ -1,14 +1,12 @@
 body{
-  background-image: url("CardGameimgs/elevated-earthbackground.jpg");
-   background-size: 100% 100%;
+  background-image: url("../CardGameimgs/elevated-earthbackground.jpg");
+  background-size: 100% 100%;
 }
 #p2attackstack{
   height: 225px;
   width: 85%;
   margin: 0 auto;
-
 }
-
 #p1attackstack{
   height: 225px;
    width: 85%;
@@ -19,7 +17,6 @@ body{
   width:100%;
   height:225px;
   border:1px solid #000;
-
 }
 /*This is the div for the action section of the whole playerboard*/
 #attackboard{
@@ -29,19 +26,17 @@ body{
   padding: 10%px;
   /*margin-left: 3%;*/
   display: inline-block;
-
 }
 /*This is the right hand side, card stack*/
 #playstackinnerbox{
   height: 100%;
   width:100%;
-  background: url("cardgameimgs/card back.jpg");
+  background: url("../cardgameimgs/card back.jpg");
   background-size:100% 100%;
   background-repeat: no-repeat;
   margin:0 auto;
   border-radius: 25px;
   text-align:center;
-
 }
 #playstack{
   width: 13%;
@@ -51,7 +46,6 @@ body{
   margin-top: 10 auto;
   border-radius: 25px;
   margin-right: 1%;
-
 }
 #playbuttonbox{
     background:teal;
@@ -61,8 +55,6 @@ body{
   float: right;
   text-align: center;
 }
-
-
 .card{
   margin: 5px;
   width: 15%;
@@ -77,9 +69,8 @@ body{
   vertical-align: top;
   border-radius: 15px;
   border: 3px solid black;
-  background-image: url("CardGameimgs/burntedges.png");
+  background-image: url("../CardGameimgs/burntedges.png");
   background-size: 100% 100%;
-
 }
 .cardtext{
   height:10%;
@@ -94,52 +85,50 @@ body{
 
 }
 #cardbody1{
-  background-image: url("CardGameimgs/card1.png");
+  background-image: url("../CardGameimgs/card1.png");
   background-size: 100% 95%;
 }
 #cardbody2{
-  background-image: url("CardGameimgs/card2.png");
+  background-image: url("../CardGameimgs/card2.png");
   background-size: 100% 95%;
 }
 
 #cardbody3{
-  background-image: url("CardGameimgs/card3.png");
+  background-image: url("../CardGameimgs/card3.png");
   background-size: 100% 95%;
 }
 
 #cardbody4{
-  background-image: url("CardGameimgs/card4.png");
+  background-image: url("../CardGameimgs/card4.png");
   background-size: 100% 95%;
 }
 
 #cardbody5{
-  background-image: url("CardGameimgs/card5.png");
+  background-image: url("../CardGameimgs/card5.png");
   background-size: 100% 95%;
 }
 
 #cardbody6{
-  background-image: url("CardGameimgs/card6.png");
+  background-image: url("../CardGameimgs/card6.png");
   background-size: 100% 95%;
 }
 #cardbody7{
-  background-image: url("CardGameimgs/card7.png");
+  background-image: url("../CardGameimgs/card7.png");
   background-size: 100% 95%;
 }
 
 #cardbody8{
-  background-image: url("CardGameimgs/card8.png");
+  background-image: url("../CardGameimgs/card8.png");
   background-size: 100% 95%;
 }
 #cardbody9{
-  background-image: url("CardGameimgs/card9.png");
+  background-image: url("../CardGameimgs/card9.png");
   background-size: 100% 95%;
 }
 #cardbody10{
-  background-image: url("CardGameimgs/card10.png");
+  background-image: url("../CardGameimgs/card10.png");
   background-size: 100% 95%;
 }
-
-
 
 .player2{
   background-color: red;
@@ -152,10 +141,9 @@ body{
   text-align: center;
   margin-right: 1%
   padding-top:30px;
-  background-image: url("CardGameimgs/counterbackground.jpg");
+  background-image: url("../CardGameimgs/counterbackground.jpg");
   background-size: cover;
   border-radius: 15px;
-
 }
 
 #counternumber{
@@ -165,5 +153,4 @@ body{
   width: 100%;
   height: 100%;
   padding-top:100px;
-
 }

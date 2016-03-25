@@ -377,14 +377,9 @@ var removeChar = function(array){
     if(array[i].health <= 0){
         removeCardID = array[i].cardis;
         $(removeCardID).remove();
-        alert(array[i].name,"has been removed");
-      //array.splice(i,1);
-      array[i] = 0;
-
-      //remove player card that was represented by t
-    }
-    else{
-      //alert("no chars removed");
+        alert(array[i].name+" has been removed");
+        array[i] = 0;
+    }else{
     }
   }
 };
@@ -393,33 +388,6 @@ var removeChar = function(array){
 
 
 
-
-
-
-
-
-
-//////////////////////////////////// saved for later
-//constructors
-
-
-// p1char = new newCharCard();
-// var Newchar = function(typeValue, nameValue,charHpValue,charHealthValue){
-//   this.typeValue = typevalue;
-//   this.nameKey = nameValue;
-//   this.charHpKey = charHpValue;
-//   this.charHealthKey = charHealthValue;
-// };
-
-// //char create test
-// p1char = new newCharCard("testchar",100,100);
-
-// var AttrCreator = function(typeValue, nameValue,charHpValue,charHealthValue){
-//   this.typeValue = typevalue;
-//   this.attrNameKey = attrNamevalue;
-//   this.attrHpKey = attrHpvalue;
-//   this.attrHealthKey = attrHealthvalue;
-// };
 
 
 
