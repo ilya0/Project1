@@ -63,4 +63,4 @@
 
 
 
-Link to [game](ilya0.github.io/Project1)
+Link to [game](http://ilya0.github.io/Project1)
