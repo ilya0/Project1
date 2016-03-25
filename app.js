@@ -1,15 +1,15 @@
 //neo and ron chars are giving back loads into p1attack char
 var testdatabaseChars =
 [{Attribute:"Char",name:"Clu",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Tron",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Sark",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Neo",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Soul",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"BON",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"CON",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Son",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"LON",health:1,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"RON",health:1,hp:1,cardis:"card99"}
+{Attribute:"Char",name:"Tron",health:2,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Sark",health:3,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Neo",health:4,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Soul",health:5,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"BON",health:6,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"CON",health:7,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Son",health:8,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"LON",health:9,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"RON",health:10,hp:1,cardis:"card99"}
 ];
 
 //char hands for characters
@@ -32,14 +32,17 @@ var removeCardID ="undefined";
 
 //*******variable for deciding the turn for the attack sequeny
 var attackTurncounter = 2;
-$('#playcounter').text(attackTurncounter);
+
+var turnName = "Player 1 Turn";
+$('#counternumber').text(turnName);
 
 var counterfunction = function(){
   if(attackTurncounter % 2 === 0){
-    return "P2";
+    turnName = "Player 1 Turn";
   } else {
-    return "p1";
+    turnName = "Player 2 Turn";
   }
+  $('#counternumber').text(turnName);
 };
 
 ///$$$$$$$$ attack counter doesnt work
@@ -52,30 +55,53 @@ $('.card').hide();
 $('#attackSequence').hide();
 
 
+
+
+
 ///disburse cards to players function
 $('#disburseCardbutton').on('click',function(){
   disburser(testdatabaseChars,p1charhand,p2charhand);
 
-  $('.card1text').html(p1charhand[0].name); /// redo with Html
+  $('.card1text').html(p1charhand[0].name);
+  $('#cardstats1').text("H:"+p1charhand[0].health + " HP: "+p1charhand[0].hp); /// redo with Html
   p1charhand[0].cardis = "#card1";
-  $('.card2text').text(p1charhand[1].name,p1charhand[1].hp);
+
+  $('.card2text').text(p1charhand[1].name);
+  $('#cardstats2').text("H:"+p1charhand[1].health + " HP: "+p1charhand[1].hp);
   p1charhand[1].cardis = "#card2";
-  $('.card3text').text(p1charhand[2].name,p1charhand[2].hp);
+
+  $('.card3text').text(p1charhand[2].name);
+  $('#cardstats3').text("H:"+p1charhand[2].health + " HP: "+p1charhand[2].hp);
   p1charhand[2].cardis = "#card3";
-  $('.card4text').text(p1charhand[3].name,p1charhand[3].hp);
+
+  $('.card4text').text(p1charhand[3].name);
+  $('#cardstats4').text("H:"+p1charhand[3].health + " HP: "+p1charhand[3].hp);
   p1charhand[3].cardis = "#card4";
-  $('.card5text').text(p1charhand[4].name,p1charhand[4].hp);
+
+  $('.card5text').text(p1charhand[4].name);
+  $('#cardstats5').text("H:"+p1charhand[4].health + " HP: "+p1charhand[4].hp);
   p1charhand[4].cardis = "#card5";
-  $('.card6text').text(p2charhand[0].name,p2charhand[0].hp);
+
+  $('.card6text').text(p2charhand[0].name);
+  $('#cardstats6').text("H:"+p2charhand[0].health + " HP: "+p2charhand[0].hp);
   p2charhand[0].cardis = "#card6";
-  $('.card7text').text(p2charhand[1].name,p2charhand[1].hp);
+
+  $('.card7text').text(p2charhand[1].name);
+  $('#cardstats7').text("H:"+p2charhand[1].health + " HP: "+p2charhand[1].hp);
   p2charhand[1].cardis = "#card7";
-  $('.card8text').text(p2charhand[2].name,p2charhand[2].hp);
+
+  $('.card8text').text(p2charhand[2].name);
+  $('#cardstats8').text("H:"+p2charhand[2].health + " HP: "+p2charhand[2].hp);
   p2charhand[2].cardis = "#card8";
-  $('.card9text').text(p2charhand[3].name,p2charhand[3].hp);
+
+  $('.card9text').text(p2charhand[3].name);
+  $('#cardstats9').text("H:"+p2charhand[3].health + " HP: "+p2charhand[3].hp);
   p2charhand[3].cardis = "#card9";
-  $('.card10text').text(p2charhand[4].name,p2charhand[4].hp);
+
+  $('.card10text').text(p2charhand[4].name);
+  $('#cardstats10').text("H:"+p2charhand[4].health + " HP: "+p2charhand[4].hp);
   p2charhand[4].cardis = "#card10";
+
   $('.card').show();
   $('#disburseCardbutton').hide();
   $('#attackSequence').show();
@@ -240,7 +266,8 @@ var attackTurn = function(){
   }
 
   attackTurncounter++;
-  $('#playcounter').text(attackTurncounter);
+  $('#counternumber').text(turnName);
+   statUpdate();
   $('.card.player2').appendTo($('#p2attackstack'));
   $('.card.player1').appendTo($('#p1attackstack'));
   removeChar(p1charhand);
@@ -248,6 +275,8 @@ var attackTurn = function(){
   p1attackChar = ["reset after attack"];
   p2attackChar = ["reset after attack"];
   winEval(p1charhand,p2charhand);
+
+  counterfunction();
 }
 };
 
@@ -273,8 +302,8 @@ for(var i = 0; i < inputArray.length; i++){
 var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
 ///char disburment turn randomizes the cards
 //then it disbureses them to the player hands
-//randomizer(testdatabaseChars);
-randomizer(testdatabaseChars,p1charhand,p2charhand);
+
+randomizer(testdatabaseChars);
 disburser(testdatabaseChars,p1charhand,p2charhand);
 console.log(p1charhand);
 console.log(p2charhand);
@@ -297,6 +326,19 @@ var times=2;
     }
     return array;
 }
+};
+
+var statUpdate = function(){
+  $('#cardstats1').text("H:"+p1charhand[0].health + " HP: "+p1charhand[0].hp); /// redo with Html
+  $('#cardstats2').text("H:"+p1charhand[1].health + " HP: "+p1charhand[1].hp);
+  $('#cardstats3').text("H:"+p1charhand[2].health + " HP: "+p1charhand[2].hp);
+  $('#cardstats4').text("H:"+p1charhand[3].health + " HP: "+p1charhand[3].hp);
+  $('#cardstats5').text("H:"+p1charhand[4].health + " HP: "+p1charhand[4].hp);
+  $('#cardstats6').text("H:"+p2charhand[0].health + " HP: "+p2charhand[0].hp);
+  $('#cardstats7').text("H:"+p2charhand[1].health + " HP: "+p2charhand[1].hp);
+  $('#cardstats8').text("H:"+p2charhand[2].health + " HP: "+p2charhand[2].hp);
+  $('#cardstats9').text("H:"+p2charhand[3].health + " HP: "+p2charhand[3].hp);
+  $('#cardstats10').text("H:"+p2charhand[4].health + " HP: "+p2charhand[4].hp);
 };
 
 
