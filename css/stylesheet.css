@@ -22,9 +22,7 @@ body{
 #attackboard{
   width: 70%;
   height: 99%;
-  border: 1px solid green;
   padding: 10%px;
-  /*margin-left: 3%;*/
   display: inline-block;
 }
 /*This is the right hand side, card stack*/
