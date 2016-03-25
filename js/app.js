@@ -1,4 +1,3 @@
-//neo and ron chars are giving back loads into p1attack char
 var testdatabaseChars =
 [{Attribute:"Char",name:"Bisquets the protector",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Tron",health:2,hp:1,cardis:"card99"},
@@ -16,8 +15,6 @@ var testdatabaseChars =
 var p1charhand = [];
 var p2charhand = [];
 
-// hard code p2 hand
-
 //******attack arrays p1 and p2
 var p1attackChar = ["p1 attack char undefined"];
 //p1attackchar is defined with the click on the card
@@ -29,13 +26,11 @@ var removeCardID ="undefined";
 
 
 //**Game mode intialisers
-
 //*******variable for deciding the turn for the attack sequeny
 var attackTurncounter = 2;
-
 var turnName = "Player 1 Turn";
 $('#counternumber').text(turnName);
-
+//counterfunction
 var counterfunction = function(){
   if(attackTurncounter % 2 === 0){
     turnName = "Player 1 Turn";
@@ -45,20 +40,12 @@ var counterfunction = function(){
   $('#counternumber').text(turnName);
 };
 
-///$$$$$$$$ attack counter doesnt work
-///**** note attack turn 2 is one player attack 1 is two player
-//variable to lock down the buttons for backwards action when game is in progress
-
-
 //hide all the cards
 $('.card').hide();
 $('#attackSequence').hide();
 
 
-
-
-
-///disburse cards to players function
+///****************disburse cards to players function
 $('#disburseCardbutton').on('click',function(){
   disburser(testdatabaseChars,p1charhand,p2charhand);
 
@@ -125,7 +112,6 @@ $('#card1').on('click', function() {
 });
 
 
-
 //card 2 click action
 $('#card2').on('click', function() {
   console.log("attack char added from p1 [1]");
@@ -136,7 +122,6 @@ $('#card2').on('click', function() {
   $( "#card2" ).appendTo( $( "#attackboard" ) );
   console.log("ATTACK Char object - " + p1attackChar[0]);
 });
-
 
 
 //card 3 click action
@@ -152,7 +137,6 @@ $('#card3').on('click', function() {
 });
 
 
-
 ///card 4 click action
 $('#card4').on('click', function() {
    console.log("attack char added from p1 [3]");
@@ -164,7 +148,6 @@ $('#card4').on('click', function() {
   $( "#card4" ).appendTo( $( "#attackboard" ) );
   console.log("ATTACK Char object - " + p1attackChar[0]);
 });
-
 
 
 //card 5 click action
@@ -204,6 +187,7 @@ $('#card7').on('click', function() {
   console.log("ATTACK Char object - " + p2attackChar[0]);
 });
 
+
 //card 8 click action
 $('#card8').on('click', function() {
    console.log("attack char added from p2 [2]");
@@ -215,6 +199,7 @@ $('#card8').on('click', function() {
   console.log("ATTACK Char object - " + p2attackChar[0]);
 });
 
+
 //card 9 click action
 $('#card9').on('click', function() {
    console.log("attack char added from p2 [3]");
@@ -225,6 +210,7 @@ $('#card9').on('click', function() {
   $( "#card9" ).appendTo( $( "#attackboard" ) );
   console.log("ATTACK Char object - " + p2attackChar[0]);
 });
+
 
 //card 10 click action
 $('#card10').on('click', function() {
@@ -244,27 +230,21 @@ var attackTurn = function(){
   if(p1attackChar[0] === "p1 attack char undefined"|| p2attackChar[0] === "p2 attack char undefined" || p1attackChar[0] === "reset after attack"||p2attackChar[0] === "reset after attack"){
     alert("Click on attacking Character");
   }else{
-
-
   console.log("attack intiatied");
   console.log("begining p1 attack char health ", p1attackChar[0].health);
   console.log("begining p2 attack char health ", p2attackChar[0].health);
 
   if (attackTurncounter %2 ===0){
    p2attackChar[0].health = p2attackChar[0].health - p1attackChar[0].hp;
-
     console.log("p1 attack char health ", p1attackChar[0].health);
     console.log("p2 attack char health ", p2attackChar[0].health);
   }
   else if(attackTurncounter%2 !==0){
    p1attackChar[0].health = p1attackChar[0].health - p2attackChar[0].hp;
 
-  }
-  else{
+  }else{
     alert("Not enough attack players");
-
   }
-
   attackTurncounter++;
   $('#counternumber').text(turnName);
    statUpdate();
@@ -275,34 +255,27 @@ var attackTurn = function(){
   p1attackChar = ["reset after attack"];
   p2attackChar = ["reset after attack"];
   winEval(p1charhand,p2charhand);
-
   counterfunction();
 }
 };
 
-
-
-
-
 //*******disbursment function to divide the main deck into two hands
 var disburser = function(inputArray,outputarray1,outputarray2){
 // takes one array and splits it into the two player arrays
-for(var i = 0; i < inputArray.length; i++){
+  for(var i = 0; i < inputArray.length; i++){
     if(i%2 === 0 ){
-    outputarray1.push(inputArray[i]);
+      outputarray1.push(inputArray[i]);
+      }else{
+      outputarray2.push(inputArray[i]);
     }
-  else{
-    outputarray2.push(inputArray[i]);
   }
-}
 };
 
 
 //*****Disbursement button to  randomized and distribute cards
 var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
-///char disburment turn randomizes the cards
+///char turn randomizes the cards
 //then it disbureses them to the player hands
-
 randomizer(testdatabaseChars);
 disburser(testdatabaseChars,p1charhand,p2charhand);
 console.log(p1charhand);
@@ -325,7 +298,7 @@ var times=2;
       array[k] = temp;
     }
     return array;
-}
+  }
 };
 
 var statUpdate = function(){
@@ -344,51 +317,32 @@ var statUpdate = function(){
 
 //***** Win eval function
 var winEval = function(array1,array2){
-var array1sum = array1.reduce(function(a, b) {
-  return a + b;
-});
-var array2sum = array2.reduce(function(a, b) {
-  return a + b;
-});
-if(array1sum===0){
-  alert("player1 looses");
-}
-if(array2sum===0){
-  alert("player2 looses");
-}
+  var array1sum = array1.reduce(function(a, b) {
+    return a + b;
+  });
+  var array2sum = array2.reduce(function(a, b) {
+    return a + b;
+  });
+  if(array1sum===0){
+    alert("player1 looses");
+  }
+  if(array2sum===0){
+    alert("player2 looses");
+  }
 
 };
 
-
-
-
-
-
-
-
-
 ///*** Remove char function
 var removeChar = function(array){
-
-
   // if char health =0, remove from array completely
 
     for(var i = 0; i < array.length; i++){
-    if(array[i].health <= 0){
+      if(array[i].health <= 0){
         removeCardID = array[i].cardis;
         $(removeCardID).remove();
         alert(array[i].name+" has been removed");
         array[i] = 0;
-    }else{
+      }else{
     }
   }
 };
-
-
-
-
-
-
-
-
-

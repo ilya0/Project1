@@ -12,3 +12,8 @@
 6. Player health is adjust after the attack mode
 7. Player characters whose health is 0 will be removed and player will be notified
 8. Once all the characters of the player are killed player looses
+
+## Explaination of how Lords of War and (and other cool things) works
+
+
+A readme.md file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
