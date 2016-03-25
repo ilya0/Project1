@@ -1,15 +1,15 @@
 //neo and ron chars are giving back loads into p1attack char
 var testdatabaseChars =
-[{Attribute:"Char",name:"Clu",health:1,hp:1,cardis:"card99"},
+[{Attribute:"Char",name:"Bisquets the protector",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Tron",health:2,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Sark",health:3,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Debugger",health:3,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Neo",health:4,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Soul",health:5,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"BON",health:6,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"CON",health:7,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"Son",health:8,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"LON",health:9,hp:1,cardis:"card99"},
-{Attribute:"Char",name:"RON",health:10,hp:1,cardis:"card99"}
+{Attribute:"Char",name:"GlutenFree",health:5,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Phillyonce",health:6,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Clu",health:7,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"JQ: The jQuery master",health:8,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Yer Mum",health:9,hp:1,cardis:"card99"},
+{Attribute:"Char",name:"Yurawizardharry",health:10,hp:1,cardis:"card99"}
 ];
 
 //char hands for characters
