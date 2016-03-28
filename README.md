@@ -58,8 +58,7 @@
     6.5 Counter text updated
 
     6.6 p1 and p2 attack deck appended to hands
-
-        6.6.1 characters stats on card updated
+    6.6.1 characters stats on card updated
     6.7 Remove char function initated to clear any "dead" characters
     6.8 p1 and p2 attack character arrays are reset to "reset after attack"
     6.9 winEval function itiated to see if any of the arrays = 0
