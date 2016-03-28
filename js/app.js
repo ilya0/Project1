@@ -1,4 +1,4 @@
-var testdatabaseChars =
+var charRepo =
 [{Attribute:"Char",name:"Bisquets the protector",health:1,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Tron",health:2,hp:1,cardis:"card99"},
 {Attribute:"Char",name:"Debugger",health:3,hp:1,cardis:"card99"},
@@ -34,7 +34,7 @@ $('#counternumber').text(turnName);
 var counterfunction = function(){
   if(attackTurncounter % 2 === 0){
     turnName = "Player 1 Turn";
-  } else {
+  }else{
     turnName = "Player 2 Turn";
   }
   $('#counternumber').text(turnName);
@@ -47,7 +47,7 @@ $('#attackSequence').hide();
 
 ///****************disburse cards to players function
 $('#disburseCardbutton').on('click',function(){
-  disburser(testdatabaseChars,p1charhand,p2charhand);
+  disburser(charRepo,p1charhand,p2charhand);
 
   $('.card1text').html(p1charhand[0].name);
   $('#cardstats1').text("H:"+p1charhand[0].health + " HP: "+p1charhand[0].hp); /// redo with Html
@@ -229,6 +229,7 @@ var attackTurn = function(){
 
   if(p1attackChar[0] === "p1 attack char undefined"|| p2attackChar[0] === "p2 attack char undefined" || p1attackChar[0] === "reset after attack"||p2attackChar[0] === "reset after attack"){
     alert("Click on attacking Character");
+
   }else{
   console.log("attack intiatied");
   console.log("begining p1 attack char health ", p1attackChar[0].health);
@@ -238,8 +239,8 @@ var attackTurn = function(){
    p2attackChar[0].health = p2attackChar[0].health - p1attackChar[0].hp;
     console.log("p1 attack char health ", p1attackChar[0].health);
     console.log("p2 attack char health ", p2attackChar[0].health);
-  }
-  else if(attackTurncounter%2 !==0){
+
+  }else if(attackTurncounter%2 !==0){
    p1attackChar[0].health = p1attackChar[0].health - p2attackChar[0].hp;
 
   }else{
@@ -273,11 +274,11 @@ var disburser = function(inputArray,outputarray1,outputarray2){
 
 
 //*****Disbursement button to  randomized and distribute cards
-var chardisbursmentTurn = function(testdatabaseChars,p1charhand,p2charhand){
+var chardisbursmentTurn = function(charRepo,p1charhand,p2charhand){
 ///char turn randomizes the cards
 //then it disbureses them to the player hands
-randomizer(testdatabaseChars);
-disburser(testdatabaseChars,p1charhand,p2charhand);
+randomizer(charRepo);
+disburser(charRepo,p1charhand,p2charhand);
 console.log(p1charhand);
 console.log(p2charhand);
 return p1charhand,p2charhand;
