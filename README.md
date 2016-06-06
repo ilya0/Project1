@@ -2,6 +2,11 @@
 
 ### Welcome to Lords of War (and other cool things)
 
+
+![](https://github.com/ilya0/Project1/blob/master/readme%20files/Main%20setup%20front%20page.png)
+
+
+
 ## Intro - How do I play this simple, but programmaticaly difficult game?
 
 1. Click on the "disburse cards" button to distribute cards to player hands
