@@ -3,8 +3,28 @@
 ### Welcome to Lords of War (and other cool things)
 
 
+## Getting Started
+
 ![](https://github.com/ilya0/Project1/blob/master/readme%20files/Main%20setup%20front%20page.png)
 
+Link to [game](http://ilya0.github.io/Project1)
+
+Link to [Trello](https://trello.com/b/0pPnXkD1/project1-pvp)
+
+
+
+### Prerequisities
+------
+
+
+Open in Heroku and your good to go
+
+
+
+
+### Installing
+------
+No installation procedures
 
 
 ## Intro - How do I play this simple, but programmaticaly difficult game?
@@ -83,9 +103,22 @@
 
 11. removeChar function init
 
+## Built With
 
+* Html
+* CSS
+* jQuery
 
-Link to [game](http://ilya0.github.io/Project1)
+## Issues that need to be resolved 
+1. Centralize the action cards
+2. make a splash screen
+3. reformat code
 
-Link to [Trello](https://trello.com/b/0pPnXkD1/project1-pvp)
+## Authors
 
+* **Ilya Osovets** -- [ilya0](https://github.com/ilya0)
+
+## Acknowledgments
+
+* WDI 
+* WDI Class
